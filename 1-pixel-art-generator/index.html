@@ -10,33 +10,57 @@
 <body class="text-bg-info">
     <main>
 
-        <div class="wrapper font-monospace bg-light w-75 rounded">
+        <!--START OF GRID WIDTH AND HEIGHT WITH RANGE-->
+
+        <div class="wrapper font-monospace bg-light w-75 rounded p-5 position-absolute">
             <div class="options">
+                <div class="opt-wrapper d-flex justify-content-between mb-3 gap-2">
 
-                <div class="slider">
-                    <label for="width-range">Grid Width</label>
-                    <input type="range" 
-                    id="width-range" 
-                    min="1"
-                    max="1" />
-                    <span id="width-value">00</span>
+                    <div class="slider">
+                        <label for="width-range" 
+                        class="d-block">Grid Width</label>
+    
+                        <input type="range" 
+                        id="width-range" 
+                        min="1"
+                        max="1" />
+                        <span id="width-value"
+                        class="fs-5 position-relative">00</span>
+                    </div>
+
+                    <div class="slider">
+                        <label for="height-range"
+                        class="d-block">Grid Height</label>
+    
+                        <input type="range" 
+                        id="height-range" 
+                        min="1"
+                        max="1" />
+                        <span id="height-value"
+                        class="fs-5 position-relative">00</span>
+                    </div>
+
                 </div>
 
-                <div class="slider">
-                    <label for="height-range">Grid Height</label>
-                    <input type="range" 
-                    id="height-range" 
-                    min="1"
-                    max="1" />
-                    <span id="height-value">00</span>
-                </div>
+                <!--END OF GRID WIDTH AND HEIGHT WITH RANGE-->   
+                
+                <!--START OF BUTTONS AND COLOR INPUT
+                CREATE GRID, CLEAR GRID, ERASE AND PAINT-->
 
-                <div class="opt-wrapper">
-                    <button id="submit-grid">Create Grid</button>
-                    <button id="clear-grid">Create Grid</button>
-                    <input type="color" id="color-input" />
-                    <button id="erase-btn">Erase</button>
-                    <button id="erase-btn">Paint</button>
+                <div class="opt-wrapper d-flex justify-content-between mb-3 gap-2">
+
+                    <button id="submit-grid"
+                    class="rounded">Create Grid</button>
+                    <button id="clear-grid"
+                    class="rounded">Clear Grid</button>
+                    <input type="color" 
+                    id="color-input" 
+                    class="rounded p-1" />
+                    <button id="erase-btn"
+                    class="rounded">Erase</button>
+                    <button id="paint-btn"
+                    class="rounded">Paint</button>
+
                 </div>
 
             </div>
@@ -45,8 +69,8 @@
 
         </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="./script.js"></script>
     </main>
 </body>
 </html>
