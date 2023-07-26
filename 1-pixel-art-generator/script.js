@@ -5,13 +5,13 @@ THEREFORE, I AM GOING TO EXPLAIN THE LOGIC FLOW FOR FUTURE REFERENCE REVIEW */
 // DECLARING VARIABLES WITH CLASSNAME AND ID
 
 let container = document.querySelectorAll(".container");
-let gridWidth = document.getElementById("width-range");
-let gridHeight = document.getElementById("height-range");
-let gridButton = document.getElementById("#submit-grid");
+let widthRange = document.getElementById("width-range"); //
+let heightRange = document.getElementById("height-range");
+let submitGridButton = document.getElementById("#submit-grid");
 let clearGridButton = document.getElementById("#clear-grid");
-let colorButton = document.getElementById("#color-input");
-let eraseBtn = document.getElementById("#erase-btn");
-let paintBtn = document.getElementById("#paint-btn");
+let colorInput = document.getElementById("#color-input");
+let eraseButton = document.getElementById("#erase-btn");
+let paintButton = document.getElementById("#paint-btn");
 let widthValue = document.getElementById("#width-value");
 let heightValue = document.getElementById("#height-value");
 
@@ -62,17 +62,17 @@ const isTouchDevice = () => {
 isTouchDevice();
 
 
-/*
-*/
-gridButton.addEventListener("click", () => {
+// EVENT LISTENER AND FOR LOOPS
+
+submitGridButton.addEventListener("click", () => {
     container.innerHTML = "";
     let count = 0;
-    for (let i = 0; i < gridHeight.value; i++) {
+    for (let i = 0; i < heightRange.value; i++) {
         count += 2;
         let div = document.createEvent("div");
         div.classList.add("gridRow");
 
-        for (let j = 0; j < gridWidth.value; j++) {
+        for (let j = 0; j < widthRange.value; j++) {
             count += 2;
             let col = document.createEvent("div");
             col.classList.add("gridCol");
@@ -82,14 +82,16 @@ gridButton.addEventListener("click", () => {
                 if (erase) {
                     col.style.backgroundColor = "transparent";
                 } else {
-                    col.style.backgroundColor = colorButton.value;
+                    col.style.backgroundColor = colorInput.value;
                 }
             });
 
             col.addEventListener(events[deviceType].move, (e) => {
                 let elementId = document.elementFromPoint (
-                    !isTouchDevice() ? e.clientX : e.touches[0].clientX,
-                    !isTouchDevice() ? e.clientY : e.touches[0].clientY,
+                    !isTouchDevice() ? e.clientX : e.touches[0].
+                    clientX,
+                    !isTouchDevice() ? e.clientY : e.touches[0].
+                    clientY,
                 ), id;
                 checker(elementId);
             });
@@ -105,4 +107,41 @@ gridButton.addEventListener("click", () => {
         container.appendChild(div);
 
     }
+});
+
+
+// IF ELSE STATEMENTS
+
+function checker(elementId) {
+    let gridColumns = document.querySelectorAll(".gridCol");
+    gridColumns.forEach((element) => {
+        if (elementId == element.id) {
+            if (draw && !erase) {
+                element.style.backgroundColor = colorInput.value;
+            } else if (draw && erase) {
+                element.style.backgroundColor = "transparent";
+            }
+        }
+    });
+}
+
+
+//
+
+clearGridButton.addEventListener("click", () => {
+    container.innerHTML = "";
+});
+
+
+//
+
+eraseButton.addEventListener("click", () => {
+    erase = true;
+});
+
+
+//
+
+paintButton.addEventListener("click", () => {
+    erase = false;
 });
