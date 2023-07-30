@@ -4,16 +4,16 @@ THEREFORE, I AM GOING TO EXPLAIN THE LOGIC FLOW FOR FUTURE REFERENCE REVIEW */
 
 // DECLARING VARIABLES WITH CLASSNAME AND ID
 
-let container = document.querySelectorAll(".container");
+let container = document.querySelectorAll("container");
 let widthRange = document.getElementById("width-range"); //
 let heightRange = document.getElementById("height-range");
-let submitGridButton = document.getElementById("#submit-grid");
-let clearGridButton = document.getElementById("#clear-grid");
-let colorInput = document.getElementById("#color-input");
-let eraseButton = document.getElementById("#erase-btn");
-let paintButton = document.getElementById("#paint-btn");
-let widthValue = document.getElementById("#width-value");
-let heightValue = document.getElementById("#height-value");
+let submitGridButton = document.getElementById("submit-grid");
+let clearGridButton = document.getElementById("clear-grid");
+let colorInput = document.getElementById("color-input");
+let eraseButton = document.getElementById("erase-btn");
+let paintButton = document.getElementById("paint-btn");
+let widthValue = document.getElementById("width-value");
+let heightValue = document.getElementById("height-value");
 
 
 /* THE OBJECT EVENTS HAS 2 SETS OF INNER OBJECTS DECLARED AS MOUSE AND TOUCH.
@@ -39,9 +39,9 @@ TO THE TOUCH DEVICE.
 VARIABLES DRAW AND ERASE DETERMINE WHETHER THE USER IS DRAWING OR ERASING CELLS. 
 THEIR BOOLEAN VALUES ARE INITIALLY SET TO FALSE.
 
-ARROW FUNCTION IS ASSIGNED TO MAKE CONDITIONS.
-IT'LL CREATE AN ELEMENT "TOUCHEVENT" WHEN THE DEVICE TYPE IDENTIFIES AS "TOUCH", AND RETURNS TRUE. 
-OTHERWISE, IT'LL RETURN TO FALSE WHEN THE DEVICE IDENTIFIES AS "MOUSE". */
+ARROW FUNCTION IS ITERATED TO MAKE CONDITIONS.
+IT'LL CREATE AN ELEMENT "TOUCHEVENT" WHEN THE DEVICE TYPE IDENTIFIED AS "TOUCH", AND RETURNS TRUE. 
+OTHERWISE, IT'LL RETURN TO FALSE WHEN THE DEVICE IDENTIFIED AS "MOUSE". */
 
 let deviceType = "";
 
@@ -69,12 +69,12 @@ submitGridButton.addEventListener("click", () => {
     let count = 0;
     for (let i = 0; i < heightRange.value; i++) {
         count += 2;
-        let div = document.createEvent("div");
+        let div = document.createElement("div");
         div.classList.add("gridRow");
 
         for (let j = 0; j < widthRange.value; j++) {
             count += 2;
-            let col = document.createEvent("div");
+            let col = document.createElement("div");
             col.classList.add("gridCol");
             col.setAttribute("id", `gridCol${count}`);
             col.addEventListener(events[deviceType].down, () => {
@@ -92,7 +92,7 @@ submitGridButton.addEventListener("click", () => {
                     clientX,
                     !isTouchDevice() ? e.clientY : e.touches[0].
                     clientY,
-                ), id;
+                ).id;
                 checker(elementId);
             });
 
