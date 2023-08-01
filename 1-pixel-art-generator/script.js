@@ -4,16 +4,16 @@ THEREFORE, I AM GOING TO EXPLAIN THE LOGIC FLOW FOR FUTURE REFERENCE REVIEW */
 
 // DECLARING VARIABLES WITH CLASSNAME AND ID
 
-let container = document.querySelectorAll("container");
-let widthRange = document.getElementById("width-range"); //
-let heightRange = document.getElementById("height-range");
-let submitGridButton = document.getElementById("submit-grid");
-let clearGridButton = document.getElementById("clear-grid");
-let colorInput = document.getElementById("color-input");
-let eraseButton = document.getElementById("erase-btn");
-let paintButton = document.getElementById("paint-btn");
-let widthValue = document.getElementById("width-value");
-let heightValue = document.getElementById("height-value");
+const container = document.getElementById("container");
+const widthRange = document.getElementById("width-range");
+const heightRange = document.getElementById("height-range");
+const submitGridButton = document.getElementById("submit-grid");
+const clearGridButton = document.getElementById("clear-grid");
+const colorInput = document.getElementById("color-input");
+const eraseButton = document.getElementById("erase-btn");
+const paintButton = document.getElementById("paint-btn");
+const widthValue = document.getElementById("width-value");
+const heightValue = document.getElementById("height-value");
 
 
 /* THE OBJECT EVENTS HAS 2 SETS OF INNER OBJECTS DECLARED AS MOUSE AND TOUCH.
@@ -50,7 +50,7 @@ let erase = false;
 
 const isTouchDevice = () => {
     try {
-        document.createElement("TouchEvent");
+        document.createEvent("TouchEvent");
         deviceType = "touch";
         return true;
     } catch (e) {
@@ -59,13 +59,43 @@ const isTouchDevice = () => {
     }
 };
 
-isTouchDevice();
+const setupDrawingInteractions = () => {
+    const gridColumns = document.querySelectorAll(".gridCol");
+
+    gridColumns.forEach((col) => {
+        col.addEventListener(events[deviceType].down, () => {
+            draw = true;
+            if (erase) {
+                col.style.backgroundColor = "transparent";
+            } else {
+                col.style.backgroundColor = colorInput.value;
+            }
+        });
+        
+        col.addEventListener(events[deviceType].move, (e) => {
+            if (draw) {
+                let elementId = col.id;
+                if (elementId) {
+                    checker(elementId);
+                }    
+            }
+            
+        });
+
+        col.addEventListener(events[deviceType].up, () => {
+            draw = false;
+        });
+        
+    });
+
+};
 
 
 // EVENT LISTENER AND FOR LOOPS
 
 submitGridButton.addEventListener("click", () => {
     container.innerHTML = "";
+
     let count = 0;
     for (let i = 0; i < heightRange.value; i++) {
         count += 2;
@@ -77,59 +107,38 @@ submitGridButton.addEventListener("click", () => {
             let col = document.createElement("div");
             col.classList.add("gridCol");
             col.setAttribute("id", `gridCol${count}`);
-            col.addEventListener(events[deviceType].down, () => {
-                draw = true;
-                if (erase) {
-                    col.style.backgroundColor = "transparent";
-                } else {
-                    col.style.backgroundColor = colorInput.value;
-                }
-            });
-
-            col.addEventListener(events[deviceType].move, (e) => {
-                let elementId = document.elementFromPoint (
-                    !isTouchDevice() ? e.clientX : e.touches[0].
-                    clientX,
-                    !isTouchDevice() ? e.clientY : e.touches[0].
-                    clientY,
-                ).id;
-                checker(elementId);
-            });
-
-            col.addEventListener(events[deviceType].up, () => {
-                draw = false;
-            });
-
             div.appendChild(col);
-
         }
 
         container.appendChild(div);
-
     }
+
+    widthRange.value = 1;
+    setupDrawingInteractions();
+
 });
 
 
 // IF ELSE STATEMENTS
 
 function checker(elementId) {
-    let gridColumns = document.querySelectorAll(".gridCol");
-    gridColumns.forEach((element) => {
-        if (elementId == element.id) {
-            if (draw && !erase) {
-                element.style.backgroundColor = colorInput.value;
-            } else if (draw && erase) {
-                element.style.backgroundColor = "transparent";
-            }
-        }
-    });
+    let element = document.getElementById(elementId);
+    
+    if (draw && !erase) {
+        element.style.backgroundColor = colorInput.value;
+    } else if (draw && erase) {
+        element.style.backgroundColor = "transparent";
+    }
 }
 
 
 //
 
 clearGridButton.addEventListener("click", () => {
-    container.innerHTML = "";
+    const gridColumns = document.querySelectorAll(".gridCol");
+    gridColumns.forEach((element) => {
+        element.style.backgroundColor = "transparent";
+    });
 });
 
 
@@ -145,3 +154,30 @@ eraseButton.addEventListener("click", () => {
 paintButton.addEventListener("click", () => {
     erase = false;
 });
+
+
+//
+
+widthRange.addEventListener("input", () => {
+    widthValue.innerHTML = widthRange.value < 10 ? `0${widthRange.value}`
+    : widthRange.value;
+});
+
+
+//
+
+heightRange.addEventListener("input", () => {
+    heightValue.innerHTML = heightRange.value < 10 ? `0${heightRange.value}`
+    : heightRange.value;
+});
+
+
+//
+
+window.onload = () => {
+    heightRange.value = 1;
+    widthRange.value = 1;
+    heightValue.innerHTML = "00";
+    widthValue.innerHTML = "00";
+    isTouchDevice();
+};
