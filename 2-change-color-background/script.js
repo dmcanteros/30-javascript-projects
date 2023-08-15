@@ -7,5 +7,5 @@ function changeColors() {
     style.background = colors[index++];
 
     if (index > colors.length - 1) 
-        index = 0;
+        index = 0; 
 }
