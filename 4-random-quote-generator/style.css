@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+:root {
+    --background: #ebc09d;
+    --quote-box: #fafafa;
+    --border: #502d05d3;
+}
+
+body, main {
+    font: 100% 'Jost', sans-serif;
+    background-color: var(--background);
+}
+
+.center {
+    border: 1px solid black;
+}
+
+.box {
+    height: 450px;
+    width: 900px;
+    padding: 0 50px;
+    border: 10px solid var(--border);
+    background-color: var(--quote-box);
+}
+
+.box p, box h3 {
+    font-size: 1.5rem;
+    overflow: hidden;
+}
