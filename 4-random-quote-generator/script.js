@@ -39,8 +39,6 @@ function generateQuote() {
     };
 
     let authors = Object.keys(quotes);
-
-    
     let authorKey = authors[Math.floor(Math.random() * authors.length)];
     let quoteValue = quotes[authorKey];
 
