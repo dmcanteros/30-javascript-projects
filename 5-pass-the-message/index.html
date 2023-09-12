@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Project 5 | Pass The Message</title>
+
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    </head>
+
+    <body>
+        <main>
+            
+            <div class="container d-flex align-items-center justify-content-center">
+                <div class="message-box rounded m-auto">
+
+                    <p>
+                        <h3 class="text-center fw-bolder">Pass The Message</h3>
+                    </p>
+                    <hr>
+
+                    <p>
+                        <label for="input-message" class="fw-medium">
+                            Enter a Message:
+                        </label>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" 
+                            class="form-control rounded" 
+                            aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-sm"
+                            id="input-message" />
+                        </div>
+                        <button onclick="promptMessage()"
+                            type="button" 
+                            class="btn btn-dark btn-sm">Submit
+                        </button>
+                    </p>
+                    
+                    <p class="text-center text-uppercase" id="output-message"></p>
+
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+            <script src="./script.js" defer></script>
+
+        </main>
+    </body>
+</html>
