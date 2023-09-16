@@ -1,6 +1,6 @@
 const inputMessage = document.getElementById("input-message");
 
-inputMessage.addEventListener("keydown", function(event) {
+inputMessage.addEventListener("keydown", (event) => {
     if (event.key == "Enter")
     promptMessage();
 });
@@ -8,4 +8,4 @@ inputMessage.addEventListener("keydown", function(event) {
 const promptMessage = () => {
     document.getElementById("output-message").innerHTML = inputMessage.value;
     inputMessage.value = "";
-}
+};
