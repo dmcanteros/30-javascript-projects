@@ -1,0 +1,80 @@
+:root {
+    --calculator-bg: whitesmoke;
+    --tip-amount-bg: rgb(79, 211, 79);
+    --tip-amount-font-color: white;
+}
+
+body, main {
+    height: 100vh;
+    background: conic-gradient(
+        from .5turn at bottom center, 
+        lightblue, 
+        white
+    );
+    box-sizing: border-box;
+}
+
+.calculator {
+    background-color: var(--calculator-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.tip-amount {
+    visibility: hidden;
+    min-width: 250px;
+    height: 60px;
+    background-color: var(--tip-amount-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    color: var(--tip-amount-font-color);
+    bottom: 120px;
+}
+
+.tip-amount.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}

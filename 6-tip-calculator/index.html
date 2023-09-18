@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Project 6 | Tip Calculator</title>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+<body>
+    <main>
+
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="calculator rounded w-100 p-3">
+
+                <h3 class="text-center">Tip Calculator</h3>
+                <hr>
+
+                <label for="bill" class="fw-medium">Bill Amount</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">₱</span>
+                    <input id="bill"
+                    type="number"
+                    class="form-control" 
+                    min="100"
+                    max="100000"
+                    aria-label="Amount (to the nearest peso)" />
+                    <span class="input-group-text">.00</span>
+                </div>
+
+                <label for="guest" class="fw-medium">Number of Guests</label>
+                <div class="input-group mb-3">
+                    <input id="guest"
+                    type="number"
+                    class="form-control"
+                    min="1"
+                    max="1000" />
+                </div>
+
+                <label for="service" class="fw-medium">Service Quality</label>
+                <div class="input-group mb-3">
+                    <select class="form-select" id="inputGroupSelect02">
+                        <option disabled selected value="0">-- Select Rating --</option>
+                        <option value="0.3">Outstanding (30%)</option>
+                        <option value="0.2">Good (20%)</option>
+                        <option value="0.15">Satisfactory (15%)</option>
+                        <option value="0.1">Unsatisfactory (10%)</option>
+                        <option value="0.05">Poor (5%)</option>
+                    </select>
+                </div>
+                <hr>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button onclick="calculateTip()"
+                    type="button" 
+                    class="btn btn-primary">Calculate
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- TIP AMOUNT WILL PROMPT HERE -->
+            <div id="tip-amount" class="tip-amount m-auto text-center rounded position-fixed"></div>
+            
+        </div>
+
+        <script src="./script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </main>
+</body>
+</html>
