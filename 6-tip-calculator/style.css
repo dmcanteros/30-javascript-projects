@@ -1,7 +1,7 @@
 :root {
     --calculator-bg: whitesmoke;
-    --tip-amount-bg: rgb(79, 211, 79);
-    --tip-amount-font-color: white;
+    --tip-amount-bg: rgb(204, 207, 204);
+    --tip-amount-font-color: black;
 }
 
 body, main {
@@ -17,22 +17,28 @@ body, main {
 .calculator {
     background-color: var(--calculator-bg);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    max-width: 60%;
+    min-width: fit-content;
 }
 
-.tip-amount {
+#tip-amount {
     visibility: hidden;
     min-width: 250px;
-    height: 60px;
+    height: 55px;
     background-color: var(--tip-amount-bg);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     color: var(--tip-amount-font-color);
-    bottom: 120px;
+    margin-top: 20px;
+    border: 5px ridge rgb(245, 245, 245);
 }
 
-.tip-amount.show {
+#tip-amount.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 @-webkit-keyframes fadein {
