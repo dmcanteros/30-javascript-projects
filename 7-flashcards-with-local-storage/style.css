@@ -1,2 +1,35 @@
+:root {
+    --white-bg: whitesmoke;
+}
 
+.flash-box {
+    background-color: var(--white-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    min-width: fit-content;
+    max-width: 70%;
+}
 
+.flash-cards {
+    padding: 0 10px;
+}
+
+.flash-card {
+    width: 370px;
+    height: 200px;
+    word-wrap: break-word;
+    margin: 10px;
+    background-color: var(--white-bg);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+
+    .flash-card {
+        margin: auto;
+    }
+
+    .flash-card {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

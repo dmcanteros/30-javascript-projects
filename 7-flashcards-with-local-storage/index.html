@@ -15,19 +15,19 @@
 
         <!-- START OF HEADER -->
 
-        <header>
+        <header class="pt-3 pb-2 mb-2 bg-black text-white">
             <div class="container">
-                <div class="nav">
+                <div class="nav d-flex justify-content-between">
 
                     <h1>Flashcards</h1>
                     <div class="buttons">
                         <button onclick="addNewCard()" 
                             type="button" 
-                            class="btn btn-warning">New Card
+                            class="btn btn-warning m-1">New Card
                         </button>
                         <button onclick="deleteAllCards()" 
                             type="button" 
-                            class="btn btn-warning">Delete Cards
+                            class="btn btn-warning">Del Cards
                         </button>
                     </div>
 
@@ -40,21 +40,21 @@
         <!-- START OF FLASHCARD BOX -->
 
         <div class="container">
-            <div class="flash-box">
+            <div class="flash-box rounded p-4 mt-5 m-auto">
 
-                <h3 class="text-center">Create Flashcard</h3>
+                <h3 class="text-center mb-3">Create Flashcard</h3>
                 <div class="form-floating mb-2">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Question</label>
                 </div>
-                <div class="form-floating mb-2">
+                <div class="form-floating mb-4">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                     <label for="floatingTextarea">Answer</label>
                 </div>
-                <div class="buttons">
+                <div class="buttons text-center">
                     <button onclick="addNewCard()" 
                         type="button" 
-                        class="btn btn-success">Save
+                        class="btn btn-success me-1">Save
                     </button>
                     <button onclick="deleteAllCards()" 
                         type="button" 
@@ -68,7 +68,7 @@
 
         <!-- FLASH CARDS WILL DROP HERE -->
 
-            <div class="flash-cards"></div>
+            <div class="flash-cards d-flex justify-content-start align-items-start flex-wrap w-100 mt-5 m-auto"></div>
 
         </div>
 
