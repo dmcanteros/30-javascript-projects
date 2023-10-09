@@ -3,6 +3,7 @@ const guest = document.getElementById("guest");
 const service = document.getElementById("inputGroupSelect02");
 const tipAmount = document.getElementById("tip-amount");
 
+
 calculateTip = () => {
     // getting the values from  the input elements
     const billValue = parseFloat(bill.value);
@@ -27,6 +28,7 @@ calculateTip = () => {
     service.value = "0";
         
 };
+
 
 /* tip amount will show
 see .tip-amount.show in css properties 
