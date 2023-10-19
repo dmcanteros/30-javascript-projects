@@ -1,5 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
 
+:root {
+    --dark-theme: black;
+    --main-text-color: white;
+    --primary-color: red;
+    --search-bar-border: lightgray;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, main {
+    font: 100% 'Manrope', sans-serif;
+    background-color: var(--dark-theme);
+    color: var(--main-text-color);
+}
 
 svg {
-    color: darkorange;
+    color: var(--primary-color)
+}
+
+header {
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 25px 0;
+}
+
+.input-field {
+    position: relative;
+    width: 350px;
+}
+
+.input-field input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 25px;
+    outline: none;
+    border: 1px solid var(--search-bar-border);
 }
