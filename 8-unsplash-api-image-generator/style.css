@@ -18,12 +18,12 @@ body, main {
     color: var(--main-text-color);
 }
 
-svg {
-    color: var(--primary-color)
-}
-
 header {
     border-bottom: 5px solid var(--primary-color);
+}
+
+svg {
+    fill: var(--primary-color);
 }
 
 .container {
@@ -36,6 +36,25 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 25px 0;
+}
+
+/* --- NAVBAR RESPONSIVENESS --- */
+
+@media (max-width: 768px) {
+    .nav {
+        justify-content: center;
+    }
+
+    .nav h2 {
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
 }
 
 .input-field {
@@ -51,4 +70,54 @@ header {
     border-radius: 25px;
     outline: none;
     border: 1px solid var(--search-bar-border);
+}
+
+.input-field svg {
+    color: var(--dark-theme);
+    position: absolute;
+    top: 25%;
+    right: 4%;
+    transition: 1.5s;
+}
+
+.input-field svg:hover {
+    cursor: pointer;
+}
+
+/* --- INPUT FIELD RESPONSIVENESS --- */
+
+@media (max-width: 480px) {
+    .input-field {
+        width: 80%;
+        margin: auto;
+    }
+
+    .input-field input {
+        font-size: 0.7rem;
+    }
+}
+
+.image-contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.image {
+    width: 380px;
+    height: 200px;
+    margin-top: 15px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
+}
+
+/* --- IMAGE CARD RESPONSIVENESS --- */
+
+@media (max-width: 768px) {
+    .image {
+        width: 100%;
+    }
 }
