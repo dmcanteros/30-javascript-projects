@@ -12,7 +12,8 @@
     padding: 0;
 }
 
-body, main {
+body,
+main {
     font: 100% 'Manrope', sans-serif;
     background-color: var(--dark-theme);
     color: var(--main-text-color);
@@ -105,6 +106,9 @@ svg {
     align-items: flex-start;
 }
 
+/* --- DIV WITH .IMAGE CLASSNAME WILL ONLY APPEAR AFTER SEARCHING AN IMAGE 
+--- 12 RELATED IMAGES WILL SHOW BELOW THE PAGE --- */
+
 .image {
     width: 380px;
     height: 200px;
@@ -112,6 +116,10 @@ svg {
     background-position: center;
     background-size: cover;
     border-radius: 2px;
+}
+
+.image:last-of-type {
+    margin-bottom: 24px;
 }
 
 /* --- IMAGE CARD RESPONSIVENESS --- */
