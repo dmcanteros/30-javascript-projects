@@ -1,0 +1,39 @@
+/* --- FONT --- */
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
+:root {
+    --black: #000;
+    --white: whitesmoke;
+    --X: #e0b11794;
+    --O: #18b66c;
+}
+
+body,
+main {
+    background-size: cover;
+    background-color: var(--black);
+    margin: 0;
+    padding: 0;
+    height: 97vh;
+    font: 100% "Agbalumo", sans-serif;
+    color: var(--white);
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3rem;
+}
+
+table {
+    border: 5px solid var(--white);
+    min-height: 50%;
+    min-width: 25%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+td {
+    border: 5px solid var(--white);
+}
