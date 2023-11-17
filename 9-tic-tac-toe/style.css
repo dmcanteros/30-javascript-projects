@@ -5,7 +5,7 @@
     --black: #000;
     --white: whitesmoke;
     --X: #e0b11794;
-    --O: #18b66c;
+    --O: #1896b6;
 }
 
 body,
@@ -17,6 +17,7 @@ main {
     height: 97vh;
     font: 100% "Agbalumo", sans-serif;
     color: var(--white);
+    position: relative;
 }
 
 h1 {
@@ -26,14 +27,48 @@ h1 {
     font-size: 3rem;
 }
 
-table {
-    border: 5px solid var(--white);
-    min-height: 50%;
-    min-width: 25%;
-    margin: auto;
-    margin-top: 2%;
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 2.5rem;
+    }
 }
 
+
+table {
+    border: 7px solid var(--white);
+    border-collapse: collapse;
+    height: 350px;
+    margin: auto;
+    margin-top: 3%;
+    table-layout: fixed;
+}
+
+@media screen and (max-width: 375px) {
+
+    table {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    table {
+        height: 309px;
+    }
+}
+
+
 td {
-    border: 5px solid var(--white);
+    border: 7px solid var(--white);
+    cursor: pointer;
+    width: 120px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 320px) {
+
+    td {
+        width: 90px;
+    }
 }
