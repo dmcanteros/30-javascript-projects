@@ -24,7 +24,7 @@ main {
 h1 {
     margin: auto;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
     font-size: 3rem;
 }
 
@@ -36,31 +36,33 @@ h1 {
 }
 
 
-table {
+/* --- 2D GAME BOARD --- */
+
+.game {
     border: 7px solid var(--white);
     border-collapse: collapse;
     height: 350px;
     margin: auto;
-    margin-top: 3%;
+    margin-top: 2%;
     table-layout: fixed;
 }
 
 @media screen and (max-width: 375px) {
 
-    table {
+    .game {
         height: 320px;
     }
 }
 
 @media screen and (max-width: 320px) {
 
-    table {
+    .game {
         height: 309px;
     }
 }
 
 
-td {
+.cell {
     border: 7px solid var(--white);
     cursor: pointer;
     width: 120px;
@@ -69,7 +71,38 @@ td {
 
 @media screen and (max-width: 320px) {
 
-    td {
+    .cell {
         width: 90px;
     }
+}
+
+
+/* --- SCORE TABLE TALLY --- */
+
+.game-tally {
+    border-collapse: collapse;
+    width: 12%;
+    margin: 0 auto;
+    margin-top: 2%;
+    table-layout: fixed;
+    white-space: nowrap;
+    padding: 0 8px;
+}
+
+caption {
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+th {
+    padding-bottom: 1px;
+    white-space: nowrap;
+    width: 50%;
+    text-align: left;
+}
+
+.score {
+    width: 25%;
+    white-space: nowrap;
+    text-align: center;
 }

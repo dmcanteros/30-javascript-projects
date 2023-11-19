@@ -15,29 +15,61 @@
 
         <h1>Tic - Tac - Toe</h1>
 
-        <table>
+        <!-- Start of 2D Game Board -->
 
-            <tbody>
+        <table class="game">
+
+            <tbody class="t3-board">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
                 </tr>
 
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
                 </tr>
 
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
+                    <td class="cell"></td>
                 </tr>
             </tbody>
 
         </table>
+
+        <!-- End of 2D Game Board -->
+
+        <!-- Start of Score Table Tally -->
+
+        <table class="game-tally">
+
+            <caption>Score Table Tally</caption>
+            
+            <tbody class="tally-scores">
+                <tr>
+                    <th>You :</th>
+                    <td class="score"></td>
+                </tr>
+
+                <tr>
+                    <th>Computer :</th>
+                    <td class="score"></td>
+                </tr>
+
+                <tr>
+                    <th>Draw :</th>
+                    <td class="score"></td>
+                </tr>
+            </tbody>
+
+
+        </table>
+
+        <!-- End of Score Table Tally -->
 
         <script type="module" src="./script.js"></script>
     </main>
