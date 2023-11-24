@@ -130,6 +130,7 @@ th {
     background-color: var(--white);
     border-radius: 3px;
     color: var(--black);
+    display: none;
 }
 
 .modal-title {

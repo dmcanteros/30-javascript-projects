@@ -1,6 +1,18 @@
 "use strict";
 
 
+/* The modal will execute automatically after the page has finished loading
+   It will ask which player to choose */
+window.addEventListener("load", function() {
+    setTimeout(function openModal(e) {
+        document.querySelector(".pre-modal")
+        .style.display = "block";
+    },
+        1000 // the modal will pop-up after 1s
+    )
+});
+
+
 // This is a 3x3 tic-tac-toe game board dimension
 const gameBoard = [
     [" ", " ", " "],
@@ -70,9 +82,3 @@ const cellClick = (row, col) => {
         boardDisplay(); // Current board with player's moves will be updated
     }
 }
-
-
-// Executed immediately after the browser load is complete
-/* const execute = () => {
-    boardDisplay();
-} */
