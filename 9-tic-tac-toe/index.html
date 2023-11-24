@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
-<body>
+<body> <!-- onload="execute()" -->
     <main>
 
         <h1>Tic - Tac - Toe</h1>
@@ -70,6 +70,37 @@
         </table>
 
         <!-- End of Score Table Tally -->
+
+        <!-- Start of Modal on Choosing the Player -->
+
+        <div class="pre-modal">
+
+            <h5 class="modal-title">Choose a Player</h5>
+            
+            <div class="modal-body">
+
+                <label for="x-option">X (First Turn)
+                    <input type="radio" 
+                    name="symbol" 
+                    id="player-x" 
+                    value="x" 
+                    checked />
+                </label>
+
+                <label for="o-option">O
+                    <input type="radio" 
+                    name="symbol" 
+                    id="player-o" 
+                    value="o" />
+                </label>
+
+            </div>
+
+            <button type="button" class="button">Play</button>
+
+        </div>
+
+        <!-- End of Modal on Choosing the Player -->
 
         <script type="module" src="./script.js"></script>
     </main>

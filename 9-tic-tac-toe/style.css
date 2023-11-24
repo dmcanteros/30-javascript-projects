@@ -4,6 +4,7 @@
 :root {
     --black: #000;
     --white: whitesmoke;
+    --button: #12a012b4;
     --X: #e0b11794;
     --O: #1896b6;
 }
@@ -12,7 +13,6 @@ body,
 main {
     background-size: cover;
     background-color: var(--black);
-    opacity: 0.8;
     margin: 0;
     padding: 0;
     height: 97vh;
@@ -26,6 +26,7 @@ h1 {
     text-align: center;
     margin-top: 3%;
     font-size: 3rem;
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {
@@ -45,6 +46,7 @@ h1 {
     margin: auto;
     margin-top: 2%;
     table-layout: fixed;
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 375px) {
@@ -87,6 +89,7 @@ h1 {
     table-layout: fixed;
     white-space: nowrap;
     padding: 0 8px;
+    opacity: 0.8;
 }
 
 caption {
@@ -105,4 +108,65 @@ th {
     width: 25%;
     white-space: nowrap;
     text-align: center;
+}
+
+.x {
+    color: var(--X);
+}
+
+.o {
+    color: var(--O);
+}
+
+/* --- MODAL --- */
+
+.pre-modal {
+    margin: 0 auto; 
+    height: 22%;
+    max-width: 300px;
+    width: 60vw;
+    text-align: center;
+    overflow: hidden !important;
+    background-color: var(--white);
+    border-radius: 3px;
+    color: var(--black);
+}
+
+.modal-title {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    margin-top: -5%;
+    display: flex;
+}
+
+label,
+input[type="radio"] {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+input[type="radio"] {
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.button {
+    padding: 7px 40px;
+    font: 100% "Agbalumo", sans-serif;
+    background-color: var(--button);
+    border: 1px solid #2c2b2b52;
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-top: 18px; 
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #12a012c0;
 }
