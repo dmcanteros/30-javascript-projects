@@ -1,15 +1,26 @@
 "use strict";
 
 
+// Global variables
+const modal = document.querySelector(".modal-bg");
+const startBtn = document.querySelector(".start-button");
+
+
 /* The modal will execute automatically after the page has finished loading
    It will ask which player to choose */
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
     setTimeout(function openModal(e) {
-        document.querySelector(".pre-modal")
+        document.querySelector(".modal-bg")
         .style.display = "block";
     },
-        1000 // the modal will pop-up after 1s
+        1000 // The modal will pop-up after 1s
     )
+});
+
+
+// The modal will close after clicking "Start" button
+startBtn.addEventListener("click", () => {
+    modal.style.display = "none";
 });
 
 
