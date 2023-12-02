@@ -165,7 +165,7 @@ input[type="radio"] {
     margin-top: 5px;
 }
 
-.start-button {
+.start-btn {
     padding: 7px 40px;
     font: 100% "Agbalumo", sans-serif;
     background-color: var(--button);
@@ -175,7 +175,7 @@ input[type="radio"] {
     margin-top: 18px; 
 }
 
-.start-button:hover {
+.start-btn:hover {
     cursor: pointer;
     background-color: #12a012c0;
 }

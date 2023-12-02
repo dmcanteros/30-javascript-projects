@@ -1,13 +1,34 @@
 "use strict";
 
 
+/* --------------------------------------------------------------------------------------------------------------------
+
+TIC-TAC-TOE GAME:
+
+The Mechanics of the Strategy Game:
+
+1. There are 9 cells in the 2D game board that will be filled-out by the players.
+2. The players are the computer and the user (whom is you).
+3. You will choose your own character, either "X" or "O".
+4. "X" is always the first turn.
+5. Players should take turns inside any of the empty cells to place their marks to get a continuous line of 3 cells.
+6. The lines can be horizontal, vertical, or diagonal.
+7. Whoever gets the straight line first, will be the WINNER!
+8. Otherwise, it's a TIE.
+9. The number of draws and winners of each players will be recorded automatically via score table tally below.
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+
 // Global variables
+
 const modal = document.querySelector(".modal-bg");
-const startBtn = document.querySelector(".start-button");
+const startBtn = document.querySelector(".start-btn");
 
 
 /* The modal will execute automatically after the page has finished loading
    It will ask which player to choose */
+
 window.addEventListener("load", () => {
     setTimeout(function openModal(e) {
         document.querySelector(".modal-bg")
@@ -19,12 +40,19 @@ window.addEventListener("load", () => {
 
 
 // The modal will close after clicking "Start" button
+
 startBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
 
+// The 2D board will reset to empty cells (if there was a prior game occurred)
+
+let gameOver = false;
+
+
 // This is a 3x3 tic-tac-toe game board dimension
+
 const gameBoard = [
     [" ", " ", " "],
     [" ", " ", " "],
@@ -33,6 +61,7 @@ const gameBoard = [
 
 
 // "X" always play first
+
 let currentPlayer = "X";
 
 
@@ -82,6 +111,7 @@ const playerTurns = () => {
 
 
 // Conditions how clicking the cells works as the player interacts
+
 const cellClick = (row, col) => {
 
     if (gameBoard[row][col] === " ") { // Condition if the cell is empty
