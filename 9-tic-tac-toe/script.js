@@ -82,6 +82,8 @@ let currentPlayer = "X";
 }; */
 
 
+
+
 const playerTurns = () => {
 
     const tableBody = document.querySelector(".t3-board"); // Assigning the .t3-board section in HTML file
