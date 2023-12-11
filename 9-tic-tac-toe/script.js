@@ -26,8 +26,8 @@ const modal = document.querySelector(".modal-bg");
 const startBtn = document.querySelector(".start-btn");
 
 
-/* The modal will execute automatically after the page has finished loading
-   It will ask which player to choose */
+/* The modal will execute automatically after the page has finished loading.
+   It will ask which player to choose. */
 
 window.addEventListener("load", () => {
     setTimeout(function openModal(e) {
@@ -39,16 +39,7 @@ window.addEventListener("load", () => {
 });
 
 
-// The modal will close after clicking "Start" button
-
-startBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-
 /*
-    The 2D board will reset to empty cells (if there was a prior game occurred)
-
     Global Variables:
 
     gameOver - Initialized to falsy if the game is over.
@@ -92,7 +83,34 @@ const winPatterns = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-]
+];
+
+
+/*  The 2D board will reset to empty cells (if there was a prior game occurred).
+    Written in for loops to iterate all 9 cells.  */
+
+const resetGame = () => {
+    
+    for (let box = 0; box < cells.length; box++) {
+        cells[box] = ""; // Updating the cell value to an empty string
+
+        const cellElement = document.getElementById(`c-${box}`); // Getting the corresponding cell element using id
+
+        cellElement.innerHTML = ""; // Reset the HTML element to an empty string
+}
+
+gameOver = false; // Setting the game to false to indicate it's not over
+
+};
+
+
+/*  The modal will close after clicking "Start" button.
+    Previous game will reset (if there's any).  */
+
+startBtn.addEventListener("click", () => {
+    resetGame(); // Calling the resetGame function to reset the game after the event click
+    modal.style.display = "none";
+});
 
 
 // "X" always play first
