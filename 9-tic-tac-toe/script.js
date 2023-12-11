@@ -3,7 +3,7 @@
 
 /* --------------------------------------------------------------------------------------------------------------------
 
-TIC-TAC-TOE GAME:
+TIC-TAC-TOE:
 
 The Mechanics of the Strategy Game:
 
@@ -46,18 +46,53 @@ startBtn.addEventListener("click", () => {
 });
 
 
-// The 2D board will reset to empty cells (if there was a prior game occurred)
+/*
+    The 2D board will reset to empty cells (if there was a prior game occurred)
+
+    Global Variables:
+
+    gameOver - Initialized to falsy if the game is over.
+    cells - Array of cells to represent 2D board with index collections to manipulate all sides.
+    winPatterns - Array pattern of elements for win conditions.  
+    
+    Horizontal:
+    [0][1][2]
+    [3][4][5]
+    [6][7][8]
+
+    Vertical:
+    [0][3][6]
+    [1][4][7]
+    [2][5][8]
+
+    Diagonal:
+    [0][4][8]
+    [2][4][6]
+*/
 
 let gameOver = false;
 
+const cells = new Array();
+    cells[0] = 0;
+    cells[1] = 1;
+    cells[2] = 2;
+    cells[3] = 3;
+    cells[4] = 4;
+    cells[5] = 5;
+    cells[6] = 6;
+    cells[7] = 7;
+    cells[8] = 8;
 
-// This is a 3x3 tic-tac-toe game board dimension
-
-const gameBoard = [
-    [" ", " ", " "],
-    [" ", " ", " "],
-    [" ", " ", " "]
-];
+const winPatterns = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
 
 
 // "X" always play first
