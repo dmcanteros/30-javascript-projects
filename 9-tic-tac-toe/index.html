@@ -19,11 +19,11 @@
 
         <table class="game">
 
-            <tbody class="t3-board">
+            <tbody class="t3-board" id="t3-board">
                 <tr>
-                    <td class="cell" id="c-0"></td>
-                    <td class="cell" id="c-1"></td>
-                    <td class="cell" id="c-2"></td>
+                    <td class="cell" id="c-0" data-cell></td>
+                    <td class="cell" id="c-1" data-cell></td>
+                    <td class="cell" id="c-2" data-cell></td>
                 </tr>
 
                 <tr>
@@ -98,13 +98,29 @@
 
                 </div>
 
-                <button type="button" class="start-btn">Start</button>
+                <button type="button" 
+                class="start-btn">Start
+                </button>
 
             </div>
 
         </div>
 
         <!-- End of Modal in Choosing the Player -->
+
+        <!-- Start of Modal for Announced Winner -->
+
+        <div class="winner" id="winner">
+
+            <div id="winner-announcement"></div>
+            
+            <button type="button" 
+            class="restart-btn">Restart
+            </button>
+
+        </div>
+
+        <!-- End of Modal for Announced Winner -->
 
         <script type="module" src="./script.js"></script>
     </main>

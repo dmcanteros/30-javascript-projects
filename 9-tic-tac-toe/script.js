@@ -24,6 +24,11 @@ The Mechanics of the Strategy Game:
 
 const modal = document.querySelector(".modal-bg");
 const startBtn = document.querySelector(".start-btn");
+const cellData = document.querySelectorAll("[data-cell]");
+const board = document.getElementById("t3-board");
+const winner = document.getElementById("winner");
+const restartBtn = document.getElementsByClassName("restart-btn");
+const winnerAnnouncement = document.getElementById("winner-announcement");
 
 
 /* The modal will execute automatically after the page has finished loading.
@@ -37,53 +42,6 @@ window.addEventListener("load", () => {
         1000 // The modal will pop-up after 1s
     )
 });
-
-
-/*
-    Global Variables:
-
-    gameOver - Initialized to falsy if the game is over.
-    cells - Array of cells to represent 2D board with index collections to manipulate all sides.
-    winPatterns - Array pattern of elements for win conditions.  
-    
-    Horizontal:
-    [0][1][2]
-    [3][4][5]
-    [6][7][8]
-
-    Vertical:
-    [0][3][6]
-    [1][4][7]
-    [2][5][8]
-
-    Diagonal:
-    [0][4][8]
-    [2][4][6]
-*/
-
-let gameOver = false;
-
-const cells = new Array();
-    cells[0] = 0;
-    cells[1] = 1;
-    cells[2] = 2;
-    cells[3] = 3;
-    cells[4] = 4;
-    cells[5] = 5;
-    cells[6] = 6;
-    cells[7] = 7;
-    cells[8] = 8;
-
-const winPatterns = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
 
 
 /*  The 2D board will reset to empty cells (if there was a prior game occurred).
@@ -113,9 +71,85 @@ startBtn.addEventListener("click", () => {
 });
 
 
-// "X" always play first
+/*
+    Global Variables:
 
-let currentPlayer = "X";
+    playerX - Player X.
+    playerO - Player O.
+*/
+
+const playerX = "x";
+const playerO = "o";
+
+/* 
+    Variable cells - Array of cells to represent 2D board with index collections to manipulate all sides.
+
+    Indexes within the tile board:
+    [0] [1] [2]
+    [3] [4] [5]
+    [6] [7] [8]
+*/
+
+const cells = new Array();
+    cells[0] = 0;
+    cells[1] = 1;
+    cells[2] = 2;
+    cells[3] = 3;
+    cells[4] = 4;
+    cells[5] = 5;
+    cells[6] = 6;
+    cells[7] = 7;
+    cells[8] = 8;
+
+/* 
+    winPatterns - Array pattern of elements for win conditions.  
+    
+    Horizontal:
+    [0] [1] [2]
+    [3] [4] [5]
+    [6] [7] [8]
+
+    Vertical:
+    [0] [3] [6]
+    [1] [4] [7]
+    [2] [5] [8]
+
+    Diagonal:
+    [0] [4] [8]
+    [2] [4] [6]
+*/
+
+const winPatterns = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+// Variable gameOver - Initialized to falsy if the game is not over
+
+let gameOver = false;
+
+// Means the player "X" is always the first turn
+
+let playerO_turn = false;
+
+
+/*  Game starts by defaulting the "X" as the first player to move.
+    Mouse click event for each cells */
+
+const startGame = () => {
+    playerO_turn = false;
+    cellData.forEach(cell => {
+        cell.addEventListener("click", cellClick, {once: true});
+    })
+    cursorForEmptyCell(); /* Cursor pointer will show when the tile is empty.
+    It means the player can plot in the empty cell */ 
+};
 
 
 /* const boardDisplay = () => {
