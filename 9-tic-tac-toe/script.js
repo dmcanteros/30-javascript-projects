@@ -174,13 +174,21 @@ const cellClick = (e) => {
     if (checkWinner(currentPlayer)) {
         endGame(false);
     } else if (draw()) {
-        endGame(true);
+        endGame(true); 
+    } else if (cell == currentPlayer) {
+        alert("This cell is already occupied. Plot your turn in an empty tile.");
     } else {
         switchTurns();
         cursorForEmptyCell();
     }
 
 };
+
+
+// Tic-Tac-Toe Strategy Game Theory Algorithm
+
+
+
 
 
 /* const boardDisplay = () => {
