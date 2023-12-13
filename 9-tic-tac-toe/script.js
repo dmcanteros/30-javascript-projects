@@ -35,6 +35,7 @@ const winnerAnnouncement = document.getElementById("winner-announcement");
    It will ask which player to choose. */
 
 window.addEventListener("load", () => {
+    
     setTimeout(function openModal(e) {
         document.querySelector(".modal-bg")
         .style.display = "block";
@@ -66,6 +67,7 @@ gameOver = false; // Setting the game to false to indicate it's not over
     Previous game will reset (if there's any).  */
 
 startBtn.addEventListener("click", () => {
+    
     resetGame(); // Calling the resetGame function to reset the game after the event click
     modal.style.display = "none";
 });
@@ -140,15 +142,44 @@ let playerO_turn = false;
 
 
 /*  Game starts by defaulting the "X" as the first player to move.
-    Mouse click event for each cells */
+    Triggering the mouse click event for each cells */
 
 const startGame = () => {
     playerO_turn = false;
+
     cellData.forEach(cell => {
         cell.addEventListener("click", cellClick, {once: true});
     })
     cursorForEmptyCell(); /* Cursor pointer will show when the tile is empty.
     It means the player can plot in the empty cell */ 
+};
+
+
+/*  
+    This function checks if there's a winner.
+    If none, the game will be a draw.
+    Otherwise, the game continues on taking turns based on the player's moves.
+    The pointer cursor will show for empty cells only.
+*/
+
+const cellClick = (e) => {
+
+    const cell = e.target;
+    const currentPlayer = playerO_turn ?
+    playerO :
+    playerX;
+
+    playerMoves(cell, currentPlayer);
+
+    if (checkWinner(currentPlayer)) {
+        endGame(false);
+    } else if (draw()) {
+        endGame(true);
+    } else {
+        switchTurns();
+        cursorForEmptyCell();
+    }
+
 };
 
 
@@ -201,7 +232,7 @@ const playerTurns = () => {
 
 // Conditions how clicking the cells works as the player interacts
 
-const cellClick = (row, col) => {
+/* const cellClick = (row, col) => {
 
     if (gameBoard[row][col] === " ") { // Condition if the cell is empty
         gameBoard[row][col] = currentPlayer; // Player's move will be executed based on the player's chosen symbol (X or O)
@@ -211,4 +242,4 @@ const cellClick = (row, col) => {
 
         boardDisplay(); // Current board with player's moves will be updated
     }
-}
+} */
