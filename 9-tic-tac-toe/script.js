@@ -27,7 +27,7 @@ const startBtn = document.querySelector(".start-btn");
 const cellData = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("t3-board");
 const winner = document.getElementById("winner");
-const restartBtn = document.getElementsByClassName("restart-btn");
+const restartBtn = document.querySelector("restart-btn");
 const winnerAnnouncement = document.getElementById("winner-announcement");
 
 
@@ -156,8 +156,11 @@ const startGame = () => {
 
 
 /*  
-    This function checks if there's a winner.
-    If none, the game will be a draw.
+    cellClick function defines which is the current player: X or O
+    The first condition checks if the cell is occupied.
+    If yes, an alert will pop up to instruct the player to plot on a different tile.
+    Next is checking if there's a winner.
+    If none, the game is draw.
     Otherwise, the game continues on taking turns based on the player's moves.
     The pointer cursor will show for empty cells only.
 */
@@ -169,20 +172,24 @@ const cellClick = (e) => {
     playerO :
     playerX;
 
+    if (cell.innerHTML !== "") {
+        alert("This cell is already occupied. Plot your turn in an empty tile.");
+        return; // Stop further execution if the cell is occupied
+    }
+
     playerMoves(cell, currentPlayer);
 
     if (checkWinner(currentPlayer)) {
         endGame(false);
     } else if (draw()) {
         endGame(true); 
-    } else if (cell == currentPlayer) {
-        alert("This cell is already occupied. Plot your turn in an empty tile.");
     } else {
         switchTurns();
         cursorForEmptyCell();
     }
 
 };
+
 
 
 // Tic-Tac-Toe Strategy Game Theory Algorithm
