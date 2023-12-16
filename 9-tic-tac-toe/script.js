@@ -8,14 +8,14 @@ TIC-TAC-TOE:
 The Mechanics of the Strategy Game:
 
 1. There are 9 cells in the 2D game board that will be filled-out by the players.
-2. The players are the computer and the user (whom is you).
-3. You will choose your own character, either "X" or "O".
+2. The players are the computer and the user.
+3. The user will choose his / her own character, either "X" or "O".
 4. "X" is always the first turn.
 5. Players should take turns inside any of the empty cells to place their marks to get a continuous line of 3 cells.
 6. The lines can be horizontal, vertical, or diagonal.
 7. Whoever gets the straight line first, will be the WINNER!
 8. Otherwise, it's a TIE.
-9. The number of draws and winners of each players will be recorded automatically via score table tally below.
+9. The total of draws and players' wins will be recorded automatically in score table tally.
 
 --------------------------------------------------------------------------------------------------------------------- */
 
@@ -31,8 +31,8 @@ const restartBtn = document.querySelector("restart-btn");
 const winnerAnnouncement = document.getElementById("winner-announcement");
 
 
-/* The modal will execute automatically after the page has finished loading.
-   It will ask which player to choose. */
+/* The modal will execute automatically after the page has finished loading;
+   It'll ask which character to choose (X or O). */
 
 window.addEventListener("load", () => {
     
@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
 });
 
 
-/*  The 2D board will reset to empty cells (if there was a prior game occurred).
+/*  The 2D board will reset to empty cells (if there was a prior game occurred);
     Written in for loops to iterate all 9 cells.  */
 
 const resetGame = () => {
@@ -63,7 +63,7 @@ gameOver = false; // Setting the game to false to indicate it's not over
 };
 
 
-/*  The modal will close after clicking "Start" button.
+/*  The modal will close after clicking "Start" button;
     Previous game will reset (if there's any).  */
 
 startBtn.addEventListener("click", () => {
@@ -76,15 +76,15 @@ startBtn.addEventListener("click", () => {
 /*
     Global Variables:
 
-    playerX - Player X.
-    playerO - Player O.
+    playerX - Player X
+    playerO - Player O
 */
 
 const playerX = "x";
 const playerO = "o";
 
 /* 
-    Variable cells - Array of cells to represent 2D board with index collections to manipulate all sides.
+    Variable cells - Array of cells to represent 2D board with zero-based indexing to manipulate all sides.
 
     Indexes within the tile board:
     [0] [1] [2]
@@ -141,7 +141,7 @@ let gameOver = false;
 let playerO_turn = false;
 
 
-/*  Game starts by defaulting the "X" as the first player to move.
+/*  Game starts by defaulting the "X" as the first player to move;
     Triggering the mouse click event for each cells */
 
 const startGame = () => {
@@ -156,13 +156,13 @@ const startGame = () => {
 
 
 /*  
-    cellClick function defines which is the current player: X or O
-    The first condition checks if the cell is occupied.
-    If yes, an alert will pop up to instruct the player to plot on a different tile.
-    Next is checking if there's a winner.
-    If none, the game is draw.
-    Otherwise, the game continues on taking turns based on the player's moves.
-    The pointer cursor will show for empty cells only.
+    "cellClick" function navigates which is the current player: X or O;
+    The first condition checks if the cell is occupied;
+    If yes, an alert will pop up to instruct the user to plot to an empty tile;
+    Next, checking if there's a winner;
+    If none, the game is draw;
+    Otherwise, the game continues on taking turns based on the players' moves;
+    By keeping the switching moves intuitive, the pointer cursor will show for empty cells only.
 */
 
 const cellClick = (e) => {
@@ -191,8 +191,19 @@ const cellClick = (e) => {
 };
 
 
+/* ------------------------------------------------------------------------------------
 
-// Tic-Tac-Toe Strategy Game Theory Algorithm
+Game Theory AI Algorithm:
+
+The two players are the computer (manipulated by AI), and the user's intuitive moves.
+
+Grading system to figure out which player wins:
+
+Win = 1
+Loss = -1
+Draw = 0
+
+------------------------------------------------------------------------------------- */
 
 
 
