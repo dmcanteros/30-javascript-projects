@@ -51,12 +51,12 @@
             
             <tbody class="tally-scores">
                 <tr>
-                    <th>You :</th>
+                    <th>Player X :</th>
                     <td class="score"></td>
                 </tr>
 
                 <tr>
-                    <th>Computer :</th>
+                    <th>Player O :</th>
                     <td class="score"></td>
                 </tr>
 
@@ -73,7 +73,7 @@
 
         <!-- Start of Modal in Choosing the Player -->
 
-        <div class="modal-bg">
+        <div class="modal-choose-player">
 
             <div class="pre-modal">
 
@@ -81,7 +81,7 @@
                 
                 <div class="modal-body">
 
-                    <label for="x-option">X (First Turn)
+                    <label for="x-option">X
                         <input type="radio" 
                         name="symbol" 
                         id="player-x" 
@@ -99,7 +99,7 @@
                 </div>
 
                 <button type="button" 
-                class="start-btn">Start
+                class="start-game-btn">Start
                 </button>
 
             </div>
@@ -110,12 +110,12 @@
 
         <!-- Start of Modal for Announced Winner -->
 
-        <div class="winner" id="winner">
+        <div class="winner" id="modal-winner">
 
             <div id="winner-announcement"></div>
             
             <button type="button" 
-            class="restart-btn">Restart
+            class="restart-game-btn">Restart
             </button>
 
         </div>

@@ -8,36 +8,38 @@ TIC-TAC-TOE:
 The Mechanics of the Strategy Game:
 
 1. There are 9 cells in the 2D game board that will be filled-out by the players.
-2. The players are the computer and the user.
-3. The user will choose his / her own character, either "X" or "O".
-4. "X" is always the first turn.
-5. Players should take turns inside any of the empty cells to place their marks to get a continuous line of 3 cells.
-6. The lines can be horizontal, vertical, or diagonal.
-7. Whoever gets the straight line first, will be the WINNER!
-8. Otherwise, it's a TIE.
-9. The total of draws and players' wins will be recorded automatically in score table tally.
+2. There are 2 players; X and O.
+3. Players should take turns inside any of the empty cells to place their marks to get a continuous line of 3 cells.
+4. The lines can be horizontal, vertical, or diagonal.
+5. Whoever gets the straight line first, will be the WINNER!
+6. Otherwise, it's a TIE.
+7. The total of draws and players' wins will be recorded automatically in score table tally.
 
 --------------------------------------------------------------------------------------------------------------------- */
 
 
 // Global variables
 
-const modal = document.querySelector(".modal-bg");
-const startBtn = document.querySelector(".start-btn");
+const modalChoosePlayer = document.querySelector(".modal-choose-player");
+const startGameBtn = document.querySelector(".start-game-btn");
 const cellData = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("t3-board");
-const winner = document.getElementById("winner");
-const restartBtn = document.querySelector("restart-btn");
+const modalWinner = document.getElementById("modal-winner");
+const restartGameBtn = document.querySelector("restart-game-btn");
 const winnerAnnouncement = document.getElementById("winner-announcement");
 
 
-/* The modal will execute automatically after the page has finished loading;
-   It'll ask which character to choose (X or O). */
+/*  ---------------------------------------------------------------------------------
+
+1.  The modal will execute automatically after the page has finished loading;
+    It'll ask which character to choose (X or O). 
+
+---------------------------------------------------------------------------------- */
 
 window.addEventListener("load", () => {
     
-    setTimeout(function openModal(e) {
-        document.querySelector(".modal-bg")
+    setTimeout(function openModalforPlayerOption(e) {
+        document.querySelector(".modal-choose-player")
         .style.display = "block";
     },
         1000 // The modal will pop-up after 1s
@@ -48,29 +50,42 @@ window.addEventListener("load", () => {
 /*  The 2D board will reset to empty cells (if there was a prior game occurred);
     Written in for loops to iterate all 9 cells.  */
 
-const resetGame = () => {
+/* const resetGame = () => {
     
-    for (let box = 0; box < cells.length; box++) {
-        cells[box] = ""; // Updating the cell value to an empty string
+    for (let cell = 0; cell < cells.length; cell++) {
+        cells[cell] = ""; // Updating the cell value to an empty string
 
-        const cellElement = document.getElementById(`c-${box}`); // Getting the corresponding cell element using id
+        const cellElement = document.getElementById(`c-${cell}`); // Getting the corresponding cell element using id
 
         cellElement.innerHTML = ""; // Reset the HTML element to an empty string
 }
 
 gameOver = false; // Setting the game to false to indicate it's not over
 
-};
+}; */
 
 
-/*  The modal will close after clicking "Start" button;
-    Previous game will reset (if there's any).  */
+/* ------------------------------------------------------
 
-startBtn.addEventListener("click", () => {
+2.  The modal will close after clicking "Start" button;
+    Previous game will reset (if there's any).  
+
+------------------------------------------------------- */
+
+startGameBtn.addEventListener("click", () => {
     
-    resetGame(); // Calling the resetGame function to reset the game after the event click
-    modal.style.display = "none";
+    // resetGame(); // Calling the resetGame function to reset the game after the event click
+    modalChoosePlayer.style.display = "none";
 });
+
+
+/* -----------------------------------------------------------------------------------
+
+3.  After choosing the character, player 1 (whichever character chosen) moves first;
+    Followed by player 2, and so on.  
+
+------------------------------------------------------------------------------------ */
+
 
 
 /*
@@ -80,8 +95,8 @@ startBtn.addEventListener("click", () => {
     playerO - Player O
 */
 
-const playerX = "x";
-const playerO = "o";
+// const playerX = "x";
+// const playerO = "o";
 
 /* 
     Variable cells - Array of cells to represent 2D board with zero-based indexing to manipulate all sides.
@@ -92,7 +107,7 @@ const playerO = "o";
     [6] [7] [8]
 */
 
-const cells = new Array();
+/* const cells = new Array();
     cells[0] = 0;
     cells[1] = 1;
     cells[2] = 2;
@@ -101,7 +116,7 @@ const cells = new Array();
     cells[5] = 5;
     cells[6] = 6;
     cells[7] = 7;
-    cells[8] = 8;
+    cells[8] = 8; */
 
 /* 
     winPatterns - Array pattern of elements for win conditions.  
@@ -121,7 +136,7 @@ const cells = new Array();
     [2] [4] [6]
 */
 
-const winPatterns = [
+/* const winPatterns = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -130,21 +145,21 @@ const winPatterns = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-];
+]; */
 
 // Variable gameOver - Initialized to falsy if the game is not over
 
-let gameOver = false;
+// let gameOver = false;
 
 // Means the player "X" is always the first turn
 
-let playerO_turn = false;
+// let playerO_turn = false;
 
 
 /*  Game starts by defaulting the "X" as the first player to move;
     Triggering the mouse click event for each cells */
 
-const startGame = () => {
+/* const startGame = () => {
     playerO_turn = false;
 
     cellData.forEach(cell => {
@@ -152,7 +167,7 @@ const startGame = () => {
     })
     cursorForEmptyCell(); /* Cursor pointer will show when the tile is empty.
     It means the player can plot in the empty cell */ 
-};
+// }; 
 
 
 /*  
@@ -165,7 +180,7 @@ const startGame = () => {
     By keeping the switching moves intuitive, the pointer cursor will show for empty cells only.
 */
 
-const cellClick = (e) => {
+/* const cellClick = (e) => {
 
     const cell = e.target;
     const currentPlayer = playerO_turn ?
@@ -188,85 +203,4 @@ const cellClick = (e) => {
         cursorForEmptyCell();
     }
 
-};
-
-
-/* ------------------------------------------------------------------------------------
-
-Game Theory AI Algorithm:
-
-The two players are the computer (manipulated by AI), and the user's intuitive moves.
-
-Grading system to figure out which player wins:
-
-Win = 1
-Loss = -1
-Draw = 0
-
-------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-/* const boardDisplay = () => {
-    console.log("  0 1 2");
-
-    // Navigating the gameBoard array that acts as full 2D board
-    for (let arr = 0; arr < gameBoard.length; arr++) {
-        let row = `${arr} `;
-
-        // Iterates the length of the sub-arrays that acts as the rows of the board
-        for (let subArr = 0; subArr < gameBoard[arr].length; subArr++) {
-            row += gameBoard[arr][subArr] + " ";
-            console.log(" " + gameBoard[arr][subArr]);
-        }
-        console.log(row);
-    }
 }; */
-
-
-
-
-const playerTurns = () => {
-
-    const tableBody = document.querySelector(".t3-board"); // Assigning the .t3-board section in HTML file
-
-    tableBody.innerHTML = ""; // Clear the previous game state (if any)
-
-
-    for (let arr = 0; arr < gameBoard.length; arr++) { // Initializing the length of the rows
-        const row = document.createElement("tr");
-
-        for (let subArr = 0; subArr < gameBoard[arr].length; subArr++) { // Getting the length of the gameBoard[arr] for sub-arrays to initialize the cell values
-            const cell = document.createElement("td");
-            cell.classList.add("cell");
-
-            cell.textContent = gameBoard[arr][subArr];
-
-            cell.addEventListener("click", () => { // Click event listener when cells are being clicked during player's movement
-                cellClick(arr, subArr); // Calls the function to iterate the event conditions <-- will be called on the next function
-            });
-
-            row.appendChild(cell);
-        }
-
-        tableBody.appendChild(row);
-    }
-};
-
-
-// Conditions how clicking the cells works as the player interacts
-
-/* const cellClick = (row, col) => {
-
-    if (gameBoard[row][col] === " ") { // Condition if the cell is empty
-        gameBoard[row][col] = currentPlayer; // Player's move will be executed based on the player's chosen symbol (X or O)
-
-        currentPlayer = currentPlayer === "X" ? "O" // Switch player
-        : "X";
-
-        boardDisplay(); // Current board with player's moves will be updated
-    }
-} */

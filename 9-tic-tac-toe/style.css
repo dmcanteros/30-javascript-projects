@@ -120,7 +120,7 @@ th {
 
 /* --- MODAL --- */
 
-.modal-bg { 
+.modal-choose-player { 
     display: none;
     position: fixed;
     width: 100%;
@@ -165,7 +165,7 @@ input[type="radio"] {
     margin-top: 5px;
 }
 
-.start-btn {
+.start-game-btn {
     padding: 7px 40px;
     font: 100% "Agbalumo", sans-serif;
     background-color: var(--button);
@@ -175,7 +175,7 @@ input[type="radio"] {
     margin-top: 18px; 
 }
 
-.start-btn:hover {
+.start-game-btn:hover {
     cursor: pointer;
     background-color: #12a012c0;
 }
