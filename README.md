@@ -1,2 +1,2 @@
-# 30-javascript-projects-challenge
-Fun mini projects to sharpen knowledge in JavaScript
+# 8-javascript-projects-challenge
+Mini projects to sharpen knowledge in JavaScript
